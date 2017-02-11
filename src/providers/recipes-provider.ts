@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Config} from "../app/config";
 
 /*
   Generated class for the RecipesProvider provider.
@@ -19,7 +20,7 @@ export class RecipesProvider {
 
     console.log("Retrive recipes from the ws....");
     var url = 'http://localhost:80/recipe/list';
-   // url = "https://sleepy-crag-97903.herokuapp.com/recipe/list";
+    //url = "https://sleepy-crag-97903.herokuapp.com/recipe/list";
 
 
     let headers = new Headers();

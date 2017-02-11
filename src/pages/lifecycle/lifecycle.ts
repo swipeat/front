@@ -22,7 +22,6 @@ export class LifecyclePage {
   }
 
   clickNext(){
-    console.log("HERE");
     this.nav.setRoot(TabsPage);
   }
 
