@@ -19,6 +19,7 @@ export class RecipesProvider {
 
     console.log("Retrive recipes from the ws....");
     var url = 'http://localhost:80/recipe/list';
+   // url = "https://sleepy-crag-97903.herokuapp.com/recipe/list";
 
 
     let headers = new Headers();

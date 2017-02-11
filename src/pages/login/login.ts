@@ -3,6 +3,7 @@ import {NavController, NavParams, LoadingController, AlertController, Loading} f
 import {AuthProvider} from "../../providers/auth-provider";
 import {TabsPage} from "../tabs/tabs";
 import {RegisterPage} from "../register/register";
+import {LifecyclePage} from "../lifecycle/lifecycle";
 
 /*
   Generated class for the Login page.
@@ -32,7 +33,7 @@ export class LoginPage {
           if (allowed) {
             setTimeout(() => {
               this.loading.dismiss();
-              this.nav.setRoot(TabsPage)
+              this.nav.setRoot(LifecyclePage)
             });
           } else {
             this.showError("Access Denied");

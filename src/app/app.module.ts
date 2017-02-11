@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import {LoginPage} from "../pages/login/login";
 import {AuthProvider} from "../providers/auth-provider";
 import {RegisterPage} from "../pages/register/register";
+import {LifecyclePage} from "../pages/lifecycle/lifecycle";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {RegisterPage} from "../pages/register/register";
     Dishes,
     TabsPage,
       LoginPage,
-      RegisterPage
+      RegisterPage,
+      LifecyclePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +32,8 @@ import {RegisterPage} from "../pages/register/register";
     Dishes,
     TabsPage,
       LoginPage,
-      RegisterPage
+      RegisterPage,
+    LifecyclePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthProvider]
 })
