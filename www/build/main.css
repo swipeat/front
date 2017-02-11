@@ -21278,7 +21278,7 @@ sub {
 }
 
 page-login .login-content {
-  background: #56CA96;
+  background: white;
 }
 
 page-login .login-content .logo-row {
@@ -21287,7 +21287,7 @@ page-login .login-content .logo-row {
 }
 
 page-login .login-content .login-box {
-  background: #399F8B;
+  background-color: #b9cf88;
   padding: 20px 20px 0px 20px;
   margin-top: 30px;
 }
@@ -21321,7 +21321,7 @@ page-login .login-content .item-inner {
 }
 
 page-login .login-content .submit-btn {
-  background: #51CFB1;
+  background-color: #e88942;
   border-radius: 30px !important;
   border: 1px solid #ffffff;
 }

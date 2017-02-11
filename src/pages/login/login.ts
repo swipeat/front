@@ -19,7 +19,7 @@ import {LifecyclePage} from "../lifecycle/lifecycle";
 export class LoginPage {
 
   loading: Loading;
-  registerCredentials = {email: '', password: ''};
+  registerCredentials = {email: 'demo', password: 'demo'};
 
   constructor(private nav: NavController, private auth: AuthProvider, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
 
