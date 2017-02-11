@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import {RecipesProvider} from "../../providers/recipes-provider";
 
 @Component({
@@ -12,9 +12,10 @@ export class Dishes {
 
   recipes: Array<any>;
 
-  constructor(public navCtrl: NavController, private recipesProvider:RecipesProvider) {
+  constructor(public navCtrl: NavController, public params: NavParams, private recipesProvider:RecipesProvider) {
 
-        this.searchRecipes(5);
+        this.searchRecipes(3);
+
   }
 
   public searchRecipes(amount:number) {
@@ -25,6 +26,8 @@ export class Dishes {
             for(var i=0; i<this.recipes.length; i++) {
                 this.recipes[i].amount = 1;
             }
+              this.recipesProvider.saveDishes(this.recipes);
+
           },
           err => {
             console.log(err);
@@ -51,6 +54,7 @@ export class Dishes {
 
                   }
               }
+              this.recipesProvider.saveDishes(this.recipes);
           },
           err => {
               console.log(err);
@@ -63,6 +67,7 @@ export class Dishes {
   public clickRemoveLastDishe() {
 
       this.recipes.pop();
+      this.recipesProvider.saveDishes(this.recipes);
 
   }
 
@@ -79,6 +84,7 @@ export class Dishes {
           data => {
               var newRecipe =  data.results[0];
               this.recipes.push(newRecipe);
+              this.recipesProvider.saveDishes(this.recipes);
           },
           err => {
               console.log(err);

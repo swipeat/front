@@ -7,16 +7,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>Arya Stark</ion-label>
-    <ion-checkbox></ion-checkbox>
-  </ion-item>
-  <ion-item>
-    <ion-label>Arya Stark</ion-label>
-    <ion-checkbox></ion-checkbox>
-  </ion-item>
-  <ion-item>
-    <ion-label>Arya Stark</ion-label>
+
+  <ion-item *ngFor="let ingr of ingredients">
+    <ion-label>{{ingr}}</ion-label>
     <ion-checkbox></ion-checkbox>
   </ion-item>
 </ion-content>

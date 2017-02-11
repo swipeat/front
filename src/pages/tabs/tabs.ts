@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { Dishes } from '../dishes/dishes';
 import { ShoppingList} from '../shopping-list/shopping-list';
 import { ContactPage } from '../contact/contact';
+import {NavParams} from "ionic-angular";
 
 @Component({
-  templateUrl: 'tabs.html'
+  templateUrl: 'tabs.html',
 })
 export class TabsPage {
   // this tells the tabs component which Pages
@@ -14,7 +15,14 @@ export class TabsPage {
   tab2Root: any = ShoppingList;
   tab3Root: any = ContactPage;
 
-  constructor() {
+
+  constructor(public params: NavParams) {
+
+
+
+  }
+
+  public refreshList() {
 
   }
 }
