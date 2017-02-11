@@ -22,7 +22,9 @@ export class Dishes {
       this.recipesProvider.getRecipes(amount).subscribe(
           data => {
             this.recipes =  data.results;
-            console.log( this.recipes);
+            for(var i=0; i<this.recipes.length; i++) {
+                this.recipes[i].amount = 1;
+            }
           },
           err => {
             console.log(err);
@@ -39,6 +41,7 @@ export class Dishes {
       this.recipesProvider.getOneRandomRecipe().subscribe(
           data => {
               var newRecipe =  data.results[0];
+              newRecipe.amount = 1;
               for(var i=0; i< this.recipes.length; i++) {
                   if(this.recipes[i].recipe_id == recipeId){
                       // We change that one
@@ -48,13 +51,46 @@ export class Dishes {
 
                   }
               }
-              console.log( this.recipes);
           },
           err => {
               console.log(err);
           },
           () => console.log('Loaded a new recipe because the user didnt liked the recipe with id = '+recipeId)
       );
+
+  }
+
+  public clickRemoveLastDishe() {
+
+      this.recipes.pop();
+
+  }
+
+  public isClickRemoveLastDishesDisabled() {
+      if(this.recipes && this.recipes.length > 0) {
+          return false;
+      }
+      return true;
+  }
+
+  public clickAddRandomDishe(){
+
+      this.recipesProvider.getOneRandomRecipe().subscribe(
+          data => {
+              var newRecipe =  data.results[0];
+              this.recipes.push(newRecipe);
+          },
+          err => {
+              console.log(err);
+          },
+          () => console.log('Loaded a new recipe because the user asked for it')
+      );
+
+
+
+  }
+
+  public addEater(dishe) {
 
   }
 

@@ -1,7 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Dishes</ion-title>
-  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="clickAddRandomDishe()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Dishes ({{ recipes?.length}})</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="clickRemoveLastDishe()" [disabled]="isClickRemoveLastDishesDisabled()">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
@@ -17,9 +29,9 @@
           <ion-icon name="remove"></ion-icon>
         </button>
         <button ion-button clear item-right disabled>
-          2 &nbsp;<ion-icon name="person"></ion-icon>
+          {{ recipe.amount }} &nbsp;<ion-icon name="person"></ion-icon>
         </button>
-        <button ion-button clear item-right>
+          <button ion-button clear item-right (click)="addEater(recipe)">
           <ion-icon name="add"></ion-icon>
         </button>
       </ion-item>

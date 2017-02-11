@@ -20,14 +20,15 @@ export class RecipesProvider {
 
     console.log("Retrive recipes from the ws....");
     var url = 'http://localhost:80/recipe/list';
-    //url = "https://sleepy-crag-97903.herokuapp.com/recipe/list";
+    url = "https://sleepy-crag-97903.herokuapp.com/recipe/getdishes";
+ //   url = "https://sleepy-crag-97903.herokuapp.com/recipe/list";
 
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
 
-    var response = this.http.get(url + "?nummeals="+amount+"&constraints=chicken").map(data => data.json());
+    var response = this.http.get(url + "?numdishes="+amount+"&constraints=chicken").map(data => data.json());
     return response;
 
   }
