@@ -91,7 +91,12 @@ export class Dishes {
   }
 
   public addEater(dishe) {
+        dishe.amount++;
+  }
 
+  public removeEater(dishe) {
+      if(dishe.amount > 1)
+            dishe.amount--;
   }
 
 }

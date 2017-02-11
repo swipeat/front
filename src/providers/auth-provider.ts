@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs";
 
@@ -14,12 +14,20 @@ export class AuthProvider {
 
   currentUser: User;
 
+  constructor(public http: Http){
+
+  }
+
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
+
+      //  var url = "https://sleepy-crag-97903.herokuapp.com/list/login";
+
+
         let access = (credentials.password === "demo" && credentials.email === "demo");
         this.currentUser = new User('Simon', 'saimon@devdactic.com');
         observer.next(access);
