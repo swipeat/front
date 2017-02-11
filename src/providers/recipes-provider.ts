@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -15,18 +15,23 @@ export class RecipesProvider {
     console.log('Hello RecipesProvider Provider');
   }
 
-  public getRecipes(){
-console.log("Retrive recipes from the ws....");
-    var url = 'https://sleepy-crag-97903.herokuapp.com/recipe/list';
+  public getRecipes(amount:number){
 
-    var data = {
-      nummeals: 5
-    };
+    console.log("Retrive recipes from the ws....");
+    var url = 'http://localhost:80/recipe/list';
 
-    var response = this.http.post(url, data).map(data => data.json());
-    console.log(response);
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+
+    var response = this.http.get(url + "?nummeals="+amount+"&constraints=chicken").map(data => data.json());
     return response;
 
+  }
+
+  public getOneRandomRecipe(){
+    return this.getRecipes(1);
   }
 
 }

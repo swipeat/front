@@ -10,16 +10,15 @@
     <ion-item-sliding *ngFor="let recipe of recipes">
       <ion-item>
         <ion-thumbnail item-left>
-          <img src="img/thumbnail-totoro.png">
+          <img src="{{ recipe.image_url }}">
         </ion-thumbnail>
-        <h2>My Neighbor Totoro</h2>
-        <p>Hayao Miyazaki • 1988</p>
+        <h2>{{ recipe.title }}</h2>
         <button ion-button clear item-right>
           2 <ion-icon name="person"></ion-icon>
         </button>
       </ion-item>
       <ion-item-options side="left">
-        <button ion-button color="danger">
+        <button ion-button color="danger" (click)="dontLikeRecipe(recipe.recipe_id)">
           <ion-icon name="hand"></ion-icon>
           I don't like
         </button>
